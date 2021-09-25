@@ -1,12 +1,28 @@
 package com.redisclone.tryredis.Services;
 
 public enum Commands {
-    DECR, DECRBY, DEL, EXISTS, EXPIRE, GET, GETSET, HDEL, HEXISTS, HGET, HGETALL, HINCRBY, 
-    HKEYS, HLEN, HMGET, HMSET, HSET, HVALS, INCR, INCRBY, KEYS, LINDEX, LLEN, LPOP, LPUSH, 
-    LRANGE, LREM, LSET, LTRIM, MGET, MSET, MSETNX, MULTI, PEXPIRE, RENAME, RENAMENX, RPOP, 
-    RPOPLPUSH, RPUSH, SADD, SCARD, SDIFF, SDIFFSTORE, SET, SETEX, SETNX, SINTER, SINTERSTORE, 
-    SISMEMBER, SMEMBERS, SMOVE, SORT, SPOP, SRANDMEMBER, SREM, SUNION, SUNIONSTORE, TTL, TYPE, 
-    ZADD, ZCARD, ZCOUNT, ZINCRBY, ZRANGE, ZRANGEBYSCORE, ZRANK, ZREM, ZREMRANGEBYSCORE, 
-    ZREVRANGE, ZSCORE
-    
+    SET,GET,EXISTS;
+
+    public String toString(){
+        switch(this){
+        case SET :
+            return "set";
+        case GET :
+            return "get";
+        case EXISTS :
+            return "exists";
+        }
+        return null;
+    }
+
+    public static Commands valueOfEnum(String value){
+        if(value.equalsIgnoreCase(SET.toString()))
+            return Commands.SET;
+        else if(value.equalsIgnoreCase(GET.toString()))
+            return Commands.GET;
+        else if(value.equalsIgnoreCase(EXISTS.toString()))
+            return Commands.EXISTS;
+        else
+            return null;
+    }
 }

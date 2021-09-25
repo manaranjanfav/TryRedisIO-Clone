@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedisHome</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  
+</head>
+
+<body>
+  
+  <div class="box">
+    <img th:src="@{/img/try-redis.png}" alt="Image">
+  </div>
+
+
+  <div class="box1">
+
+    <div class="box2">
+      <h1> Welcome to Try Redis, a demonstration of the <a href="https://redis.io/" style="color:burlywood;">Redis</a>
+        database!</h1>
+       
+        <form id="form1" action="tutorial" method="post">
+         <p> Please type 
+        <a href="javascript:;" onclick="document.getElementById('form1').submit();">TUTORIAL</a>
+        <input type="hidden" name="mess" value=TUTORIAL/> to begin a brief tutorial </p>
+        </form> 
+
+        <form id="form2" action="help" method="post">
+          <p> 
+         <a href="javascript:;" onclick="document.getElementById('form2').submit();">HELP</a>
+         <input type="hidden" name="mess" value=HELP/> to see a list of supported commands, or any valid Redis command to play with the database. </p>
+         </form> 
+
+        
+
+
+      </h1>
+
+    </div>
+    
+    <p th:each="visitor : ${abc}">
+     <span th:text="${visitor}"></span>
+    </p>
+    
+
+  </div>
+
+<form id="toolbar" action="home" method="post">
+  <input spellcheck='false'  name="input" id="input" type="text" autofocus>
+  </form>
+
+    
+
+</body>
+
+</html>

@@ -53,6 +53,18 @@ public class EvictionPolicyLRU<Key> implements EvictionPolicy<Key> {
     @Override
     public void KeyTouched(Key obj) {
         
+        if(mp.containsKey(obj))
+        {
+            doublylinkedlist.removeNode(mp.get(obj));
+            DoublyLinkedListNode<Key> dnode = doublylinkedlist.addNodeAtLast(obj);
+            mp.put(obj,dnode);
+            System.out.println("value is properly touched1");
+        }else{
+            DoublyLinkedListNode<Key> dnode = doublylinkedlist.addNodeAtLast(obj);
+            mp.put(obj, dnode);
+            System.out.println("value is properly touched2");
+        }
+        
         
     }
     

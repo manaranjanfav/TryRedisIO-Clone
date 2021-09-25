@@ -40,7 +40,7 @@ public class DoublyLinkedListNode<T> {
         this.obj = obj;
     }
 
-    public DoublyLinkedListNode<T> prev(DoublyLinkedListNode<T> prev) {
+    /*public DoublyLinkedListNode<T> prev(DoublyLinkedListNode<T> prev) {
         setPrev(prev);
         return this;
     }
@@ -53,7 +53,7 @@ public class DoublyLinkedListNode<T> {
     public DoublyLinkedListNode<T> obj(T obj) {
         setObj(obj);
         return this;
-    }
+    }*/
 
     @Override
     public String toString() {

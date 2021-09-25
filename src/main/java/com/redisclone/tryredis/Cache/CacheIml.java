@@ -17,14 +17,21 @@ public class CacheIml<Key,Val> {
 
     public void set(Key key, Val val)
     {
+        
         try {
-            this.storage.setKeyToVal(key, val);
             this.policy.KeyTouched(key);
+            this.storage.setKeyToVal(key, val);
         } catch (MemoryFullException e) {
             System.out.println("Memory is full trying to evict");
             Key keyToRemove = this.policy.evictKey();
             if(keyToRemove == null) 
              throw new RuntimeException("Error MemoryFull and no key found to evict");
+            
+             this.storage.removeKey(keyToRemove);
+             this.storage.setKeyToVal(key, val);
+             this.policy.KeyTouched(key);
+             System.out.println("value is added properly to storage");
+
              
         }
         
@@ -33,11 +40,22 @@ public class CacheIml<Key,Val> {
     {
         try {
            Val val = this.storage.getVal(key);
-           policy.KeyTouched(key);
+           this.policy.KeyTouched(key);
+           System.out.println("Value proerly returned1");
            return val;
         } catch (NotfoundException e) {
         System.out.println("Key Not found");
             return null;
+        }
+    }
+
+    public void removeAllkeys()
+    {
+        while(true)
+        {
+            Key keyToRemove = this.policy.evictKey();
+            if(keyToRemove == null) break;
+            this.storage.removeKey(keyToRemove);
         }
     }
 

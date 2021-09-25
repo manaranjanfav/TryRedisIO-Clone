@@ -4,56 +4,71 @@ public class DoublyLinkImpl<T> {
 
     private DoublyLinkedListNode<T> head;
     private DoublyLinkedListNode<T> tail;
-    
 
     public DoublyLinkImpl() {
-        this.head=null;
-        this.tail=null;
+        this.head = null;
+        this.tail = null;
     }
-    
-    public void addNode(T obj)
-    {
+
+    public DoublyLinkedListNode<T> addNodeAtLast(T obj) {
         DoublyLinkedListNode<T> new_node = new DoublyLinkedListNode<T>();
         new_node.setObj(obj);
 
-        if(head == null)
-        {
+        if (head == null) {
             head = tail = new_node;
-            head.setPrev(null);
-        }else{
+        } else {
             tail.setNext(new_node);
             new_node.setPrev(tail);
             tail = new_node;
             tail.setNext(null);
+
         }
+
+        return new_node;
     }
 
-    public void removeNodeAtFront()
-    {
-       head=head.getNext();
-    }
-
-    public void removeNode(DoublyLinkedListNode<T> removeNode)
-    {
-      DoublyLinkedListNode<T> prev = removeNode.getPrev();
-      DoublyLinkedListNode<T> next = removeNode.getNext();
-
-      prev.setNext(next);
-      next.setPrev(prev);
-    }
-
-    public void PrintAllNodes()
-    {
-        DoublyLinkedListNode<T> current = head;
-        if(head == null)
+    public void removeNodeAtFront() {
+        if(head==null)
         {
+            System.out.println("Doubly linked list is empty");
+            return;
+        }
+        head = head.getNext();
+    }
+
+    public void removeNode(DoublyLinkedListNode<T> removeNode) {
+
+        if(head==null)
+        {
+            System.out.println("Please provide a valid node to remove");
+            return;
+        }
+        if(removeNode == head)
+        {
+            head=head.getNext();
+            return;
+        }
+        if(removeNode == tail)
+        {
+            tail = tail.getPrev();
+            return;
+        }
+        DoublyLinkedListNode<T> prev = removeNode.getPrev();
+        DoublyLinkedListNode<T> next = removeNode.getNext();
+        prev.setNext(next);
+        next.setPrev(prev);
+        System.out.println("node is properly removed from doubly linked list");
+    }
+
+    public void PrintAllNodes() {
+        DoublyLinkedListNode<T> current = head;
+        if (head == null) {
             System.out.println("The doubly link list is empty");
             return;
         }
 
-        while(current!=null)
-        {
-            System.out.print(current.getObj()+" ");
+        while (current != null) {
+            System.out.print(current.getObj() + " ");
             current = current.getNext();
         }
     }
@@ -79,24 +94,9 @@ public class DoublyLinkImpl<T> {
         this.tail = tail;
     }
 
-    public DoublyLinkImpl<T> head(DoublyLinkedListNode<T> head) {
-        setHead(head);
-        return this;
-    }
-
-    public DoublyLinkImpl<T> tail(DoublyLinkedListNode<T> tail) {
-        setTail(tail);
-        return this;
-    }
-
     @Override
     public String toString() {
-        return "{" +
-            " head='" + getHead() + "'" +
-            ", tail='" + getTail() + "'" +
-            "}";
+        return "{" + " head='" + getHead() + "'" + ", tail='" + getTail() + "'" + "}";
     }
 
-    
-    
 }

@@ -50,13 +50,15 @@ public class MemoryStorageHashmap<Key,Val> implements Memorystorage<Key,Val> {
     @Override
     public Val getVal(Key key) throws NotfoundException {
         
-        if(!hashMap.containsKey(key)) throw new NotfoundException("Key Not Found....");
+        if(hashMap.containsKey(key)==false) throw new NotfoundException("Key Not Found....");
+        System.out.println("value is returned from storage");
         return hashMap.get(key);
+        
     }
 
     @Override
     public void removeKey(Key key) throws NotfoundException {
-        if(!hashMap.containsKey(key)) throw new NotfoundException("Key Not Found....");
+        if(hashMap.containsKey(key)==false) throw new NotfoundException("Key Not Found....");
         hashMap.remove(key);
     }
         

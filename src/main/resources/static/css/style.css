@@ -1,0 +1,98 @@
+body{
+    background-color: #262626;
+    display: block;
+    margin: 8px;
+}
+
+.box{
+            
+    margin: auto;
+    margin-top: 1em;
+    padding: 0em;        
+    padding-top: 0.25em;
+    padding-bottom: 0,25em;
+    border: 5px solid #595540;
+    text-align: center;
+    width: 600px;
+    background-color: #cc8139
+    
+}
+
+div.box1{
+
+    width: 90%;
+    background-color: #ffefd5;
+    margin: auto;
+    margin-top: -5px;
+    padding: 1em 1em 1em 1em;
+    border: 5px solid #595540;
+    overflow: auto;
+    font-family: monospace;
+    color: #262626;
+    font-size: 1.25em;
+    word-wrap: break-word;
+    padding-bottom: 35%;
+    height: 100px;
+    
+}
+
+
+
+.box1 .box2{
+    font-weight: normal;
+    background-color: #262626;
+    color: #cc8139;
+    font-family: sans-serif;
+    font-size: 0.75em;
+    padding: 2% 1% 2% 1%;
+    
+}
+
+#log .line {
+    margin: 0em 0em 1em 0em;
+    line-height: 1.25em;
+}
+
+
+#input{
+    
+    margin: auto;
+    margin-top: 1em;
+    padding: 0em;        
+    padding-top: 0.25em;
+    padding-bottom: 0,25em;
+    border: 5px solid #595540;
+    width: 600px;
+    background-color: #cc8139;
+    padding: 0% 10% 0% 0%;
+    
+}
+h1 {
+    font-size: 95%;
+  }
+#toolbar{
+    width: 750px;
+    margin: auto;
+    border: 0px;
+    margin-top: -5px;
+    padding: 0em;
+    
+}
+
+#toolbar #input {
+    padding: 0.5em;
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #cc8139;
+    color: #262626;
+    font-family: monospace;
+    border: 5px solid #595540;
+    outline: none;
+    background-image: url(/img/prompt.png);
+    background-repeat: no-repeat;
+    padding-left: 45px;
+}
+
+div form {
+    display: inline-block;
+}
