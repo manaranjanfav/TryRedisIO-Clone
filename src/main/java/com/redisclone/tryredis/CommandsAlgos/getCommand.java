@@ -9,7 +9,7 @@ public class getCommand<key,val> {
         val v = cache.get(k);
         String ans = v.toString();
         System.out.println("Executing get");
-        String fans = ans + "OK";
+        String fans = ans;
         return fans;
     }
 }
